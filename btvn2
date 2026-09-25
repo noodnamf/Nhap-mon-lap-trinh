@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    float chieucao, cannang, BMI;
+    const char* xepLoai;
+
+    printf("Nhap chieu cao (cm) va can nang (kg): ");
+    scanf("%f %f", &chieucao, &cannang);
+
+    BMI = cannang / ((chieucao/100)*(chieucao/100));
+
+    xepLoai = (BMI >= 40) ? "Beo Phi III" : (BMI >= 35) ? "Beo Phi II" :
+	          (BMI >= 30) ? "Beo Phi I" : (BMI >= 25) ? "Thua Can" :
+			  (BMI >= 18.5) ? "Binh Thuong" : "Gay" ;
+
+    printf("BMI: %.2f\n", BMI);
+    printf("Xep loai: %s\n", xepLoai);
+
+    return 0;
+}
