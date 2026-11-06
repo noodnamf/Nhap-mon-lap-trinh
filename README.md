@@ -5,25 +5,20 @@ https://www.mediafire.com/file/9bhv8wb4xbcphcz/NMLT.rar/file
 #include <stdio.h>
 
 int main() {
-    int n;
+    int h;
     
-    // Nhập số nguyên dương n từ bàn phím
-    scanf("%d", &n);
+    // Nhập chiều cao h của hình tam giác từ bàn phím
+    scanf("%d", &h);
     
-    int first = 1; // Biến cờ để kiểm soát việc in dấu phẩy
-    
-    // Duyệt qua tất cả các số từ 1 đến n
-    for (int i = 1; i <= n; i++) {
-        if (n % i == 0) {
-            if (!first) {
-                printf(", "); // In dấu phẩy và khoảng trắng giữa các ước
-            }
-            printf("%d", i);
-            first = 0; // Đánh dấu đã in ít nhất một số
+    // Vòng lặp ngoài duyệt qua từng hàng từ 1 đến h
+    for (int i = 1; i <= h; i++) {
+        // Vòng lặp trong in ra i dấu sao (*) trên hàng thứ i
+        for (int j = 1; j <= i; j++) {
+            printf("*");
         }
+        // Xuống dòng sau khi in xong mỗi hàng
+        printf("\n");
     }
-    
-    printf("\n"); // Xuống dòng ở cuối kết quả
     
     return 0;
 }
