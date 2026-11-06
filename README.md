@@ -5,33 +5,31 @@ https://www.mediafire.com/file/9bhv8wb4xbcphcz/NMLT.rar/file
 #include <stdio.h>
 
 int main() {
-    int h;
+    double epsilon;
     
-    // Nhập chiều cao h từ bàn phím
-    scanf("%d", &h);
+    // Nhập giá trị epsilon từ bàn phím (ví dụ: 1e-2 hoặc 1e-3)
+    scanf("%lf", &epsilon);
     
-    // Vòng lặp duyệt qua từng hàng từ 1 đến h
-    for (int i = 1; i <= h; i++) {
-        // Hàng đầu tiên in ra 1 dấu sao
-        if (i == 1) {
-            printf("*\n");
-        } 
-        // Hàng cuối cùng (đáy tam giác) in đầy đủ h dấu sao
-        else if (i == h) {
-            for (int j = 1; j <= h; j++) {
-                printf("*");
-            }
-            printf("\n");
-        } 
-        // Các hàng ở giữa: in 1 sao ở đầu, các khoảng trắng ở giữa, và 1 sao ở cuối
-        else {
-            printf("*");
-            for (int j = 1; j <= i - 2; j++) {
-                printf(" ");
-            }
-            printf("*\n");
+    double sum = 0.0;
+    int n = 1;
+    
+    // Vòng lặp tính tổng và kiểm tra điều kiện dừng
+    while (1) {
+        double term = 1.0 / n;
+        sum += term;
+        
+        // Khi số hạng 1/n nhỏ hơn epsilon thì dừng vòng lặp
+        if (term < epsilon) {
+            break;
         }
+        n++;
     }
+    
+    // In kết quả theo đúng định dạng mẫu của đề bài
+    printf("n = %d\n", n);
+    printf("nth sum = %f\n", sum);
+    printf("value = %E\n", 1.0 / n);
     
     return 0;
 }
+
