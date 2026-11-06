@@ -7,7 +7,7 @@ https://www.mediafire.com/file/9bhv8wb4xbcphcz/NMLT.rar/file
 int main() {
     int h;
     
-    // Nhập chiều cao h của hình tam giác từ bàn phím
+    // Nhập chiều cao h từ bàn phím
     scanf("%d", &h);
     
     // Vòng lặp ngoài duyệt qua từng hàng từ 1 đến h
