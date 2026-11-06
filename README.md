@@ -10,20 +10,27 @@ int main() {
     // Nhập chiều cao h từ bàn phím
     scanf("%d", &h);
     
-    // Vòng lặp ngoài duyệt qua từng hàng từ 1 đến h
+    // Vòng lặp duyệt qua từng hàng từ 1 đến h
     for (int i = 1; i <= h; i++) {
-        // In khoảng trắng bên trái (h - i khoảng trắng)
-        for (int j = 1; j <= h - i; j++) {
-            printf(" ");
-        }
-        
-        // In các dấu sao (i dấu sao)
-        for (int j = 1; j <= i; j++) {
+        // Hàng đầu tiên in ra 1 dấu sao
+        if (i == 1) {
+            printf("*\n");
+        } 
+        // Hàng cuối cùng (đáy tam giác) in đầy đủ h dấu sao
+        else if (i == h) {
+            for (int j = 1; j <= h; j++) {
+                printf("*");
+            }
+            printf("\n");
+        } 
+        // Các hàng ở giữa: in 1 sao ở đầu, các khoảng trắng ở giữa, và 1 sao ở cuối
+        else {
             printf("*");
+            for (int j = 1; j <= i - 2; j++) {
+                printf(" ");
+            }
+            printf("*\n");
         }
-        
-        // Xuống dòng sau khi xong mỗi hàng
-        printf("\n");
     }
     
     return 0;
