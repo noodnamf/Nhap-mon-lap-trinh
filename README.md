@@ -12,11 +12,17 @@ int main() {
     
     // Vòng lặp ngoài duyệt qua từng hàng từ 1 đến h
     for (int i = 1; i <= h; i++) {
-        // Vòng lặp trong in ra i dấu sao (*) trên hàng thứ i
+        // In khoảng trắng bên trái (h - i khoảng trắng)
+        for (int j = 1; j <= h - i; j++) {
+            printf(" ");
+        }
+        
+        // In các dấu sao (i dấu sao)
         for (int j = 1; j <= i; j++) {
             printf("*");
         }
-        // Xuống dòng sau khi in xong mỗi hàng
+        
+        // Xuống dòng sau khi xong mỗi hàng
         printf("\n");
     }
     
