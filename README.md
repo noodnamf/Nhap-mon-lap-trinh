@@ -5,31 +5,31 @@ https://www.mediafire.com/file/9bhv8wb4xbcphcz/NMLT.rar/file
 #include <stdio.h>
 
 int main() {
-    double epsilon;
+    int n;
     
-    // Nhập giá trị epsilon từ bàn phím (ví dụ: 1e-2 hoặc 1e-3)
-    scanf("%lf", &epsilon);
+    // Nhập số tiền cần rút từ bàn phím
+    scanf("%d", &n);
     
-    double sum = 0.0;
-    int n = 1;
+    int count = 0; // Đếm số cách rút tiền (nếu cần)
     
-    // Vòng lặp tính tổng và kiểm tra điều kiện dừng
-    while (1) {
-        double term = 1.0 / n;
-        sum += term;
-        
-        // Khi số hạng 1/n nhỏ hơn epsilon thì dừng vòng lặp
-        if (term < epsilon) {
-            break;
+    // Vòng lặp duyệt số tờ 500
+    for (int i500 = 0; i500 * 500 <= n; i500++) {
+        // Vòng lặp duyệt số tờ 200
+        for (int i200 = 0; i200 * 200 <= n; i200++) {
+            // Vòng lặp duyệt số tờ 100
+            for (int i100 = 0; i100 * 100 <= n; i100++) {
+                // Vòng lặp duyệt số tờ 50
+                for (int i50 = 0; i50 * 50 <= n; i50++) {
+                    
+                    // Kiểm tra nếu tổng giá trị các tờ tiền bằng số tiền n
+                    if (i500 * 500 + i200 * 200 + i100 * 100 + i50 * 50 == n) {
+                        printf("%d to 500 + %d to 200 + %d to 100 + %d to 50\n", 
+                               i500, i200, i100, i50);
+                    }
+                }
+            }
         }
-        n++;
     }
-    
-    // In kết quả theo đúng định dạng mẫu của đề bài
-    printf("n = %d\n", n);
-    printf("nth sum = %f\n", sum);
-    printf("value = %E\n", 1.0 / n);
     
     return 0;
 }
-
